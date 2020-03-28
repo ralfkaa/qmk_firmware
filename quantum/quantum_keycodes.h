@@ -173,24 +173,44 @@ enum quantum_keycodes {
 #if !MIDI_ENABLE_STRICT || (defined(MIDI_ENABLE) && defined(MIDI_ADVANCED))
     MIDI_TONE_MIN,
 
+#    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > N1
+    MI_C_N1 = MIDI_TONE_MIN,
+    MI_Cs_N1,
+    MI_Db_N1 = MI_Cs_N1,
+    MI_D_N1,
+    MI_Ds_N1,
+    MI_Eb_N1 = MI_Ds_N1,
+    MI_E_N1,
+    MI_F_N1,
+    MI_Fs_N1,
+    MI_Gb_N1 = MI_Fs_N1,
+    MI_G_N1,
+    MI_Gs_N1,
+    MI_Ab_N1 = MI_Gs_N1,
+    MI_A_N1,
+    MI_As_N1,
+    MI_Bb_N1 = MI_As_N1,
+    MI_B_N1,
+#    endif
+
 #    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 0
-    MI_C = MIDI_TONE_MIN,
-    MI_Cs,
-    MI_Db = MI_Cs,
-    MI_D,
-    MI_Ds,
-    MI_Eb = MI_Ds,
-    MI_E,
-    MI_F,
-    MI_Fs,
-    MI_Gb = MI_Fs,
-    MI_G,
-    MI_Gs,
-    MI_Ab = MI_Gs,
-    MI_A,
-    MI_As,
-    MI_Bb = MI_As,
-    MI_B,
+    MI_C_0,
+    MI_Cs_0,
+    MI_Db_0 = MI_Cs_0,
+    MI_D_0,
+    MI_Ds_0,
+    MI_Eb_0 = MI_Ds_0,
+    MI_E_0,
+    MI_F_0,
+    MI_Fs_0,
+    MI_Gb_0 = MI_Fs_0,
+    MI_G_0,
+    MI_Gs_0,
+    MI_Ab_0 = MI_Gs_0,
+    MI_A_0,
+    MI_As_0,
+    MI_Bb_0 = MI_As_0,
+    MI_B_0,
 #    endif
 
 #    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 1
@@ -293,7 +313,89 @@ enum quantum_keycodes {
     MI_B_5,
 #    endif
 
-#    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 5
+#    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 6
+    MI_C_6,
+    MI_Cs_6,
+    MI_Db_6 = MI_Cs_6,
+    MI_D_6,
+    MI_Ds_6,
+    MI_Eb_6 = MI_Ds_6,
+    MI_E_6,
+    MI_F_6,
+    MI_Fs_6,
+    MI_Gb_6 = MI_Fs_6,
+    MI_G_6,
+    MI_Gs_6,
+    MI_Ab_6 = MI_Gs_6,
+    MI_A_6,
+    MI_As_6,
+    MI_Bb_6 = MI_As_6,
+    MI_B_6,
+#    endif
+
+#    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 7
+    MI_C_7,
+    MI_Cs_7,
+    MI_Db_7 = MI_Cs_7,
+    MI_D_7,
+    MI_Ds_7,
+    MI_Eb_7 = MI_Ds_7,
+    MI_E_7,
+    MI_F_7,
+    MI_Fs_7,
+    MI_Gb_7 = MI_Fs_7,
+    MI_G_7,
+    MI_Gs_7,
+    MI_Ab_7 = MI_Gs_7,
+    MI_A_7,
+    MI_As_7,
+    MI_Bb_7 = MI_As_7,
+    MI_B_7,
+#    endif
+
+#    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 8
+    MI_C_8,
+    MI_Cs_8,
+    MI_Db_8 = MI_Cs_8,
+    MI_D_8,
+    MI_Ds_8,
+    MI_Eb_8 = MI_Ds_8,
+    MI_E_8,
+    MI_F_8,
+    MI_Fs_8,
+    MI_Gb_8 = MI_Fs_8,
+    MI_G_8,
+    MI_Gs_8,
+    MI_Ab_8 = MI_Gs_8,
+    MI_A_8,
+    MI_As_8,
+    MI_Bb_8 = MI_As_8,
+    MI_B_8,
+#    endif
+
+#    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 9
+    MI_C_9,
+    MI_Cs_9,
+    MI_Db_9 = MI_Cs_9,
+    MI_D_9,
+    MI_Ds_9,
+    MI_Eb_9 = MI_Ds_9,
+    MI_E_9,
+    MI_F_9,
+    MI_Fs_9,
+    MI_Gb_9 = MI_Fs_9,
+    MI_G_9,
+#    endif
+
+#    if !MIDI_ENABLE_STRICT || MIDI_TONE_KEYCODE_OCTAVES > 9
+    MIDI_TONE_MAX = MI_G_9,
+#    elif MIDI_TONE_KEYCODE_OCTAVES > 8
+    MIDI_TONE_MAX = MI_B_8,
+#    elif MIDI_TONE_KEYCODE_OCTAVES > 7
+    MIDI_TONE_MAX = MI_B_7,
+#    elif MIDI_TONE_KEYCODE_OCTAVES > 6
+    MIDI_TONE_MAX = MI_B_6,
+#    elif MIDI_TONE_KEYCODE_OCTAVES > 5
     MIDI_TONE_MAX = MI_B_5,
 #    elif MIDI_TONE_KEYCODE_OCTAVES > 4
     MIDI_TONE_MAX = MI_B_4,
@@ -304,12 +406,13 @@ enum quantum_keycodes {
 #    elif MIDI_TONE_KEYCODE_OCTAVES > 1
     MIDI_TONE_MAX = MI_B_1,
 #    elif MIDI_TONE_KEYCODE_OCTAVES > 0
-    MIDI_TONE_MAX = MI_B,
+    MIDI_TONE_MAX = MI_B_0,
+#    elif MIDI_TONE_KEYCODE_OCTAVES > N1
+    MIDI_TONE_MAX = MI_B_N1
 #    endif
 
     MIDI_OCTAVE_MIN,
-    MI_OCT_N2 = MIDI_OCTAVE_MIN,
-    MI_OCT_N1,
+    MI_OCT_N1 = MIDI_OCTAVE_MIN,
     MI_OCT_0,
     MI_OCT_1,
     MI_OCT_2,
@@ -318,7 +421,9 @@ enum quantum_keycodes {
     MI_OCT_5,
     MI_OCT_6,
     MI_OCT_7,
-    MIDI_OCTAVE_MAX = MI_OCT_7,
+    MI_OCT_8,
+    MI_OCT_9,
+    MIDI_OCTAVE_MAX = MI_OCT_9,
     MI_OCTD,  // octave down
     MI_OCTU,  // octave up
 
