@@ -44,7 +44,7 @@ midi_config_t   midi_config;
 inline uint8_t compute_velocity(uint8_t setting) { return (setting + 1) * (128 / (MIDI_VELOCITY_MAX - MIDI_VELOCITY_MIN + 1)); }
 
 void midi_init(void) {
-    midi_config.octave              = MI_OCT_2 - MIDI_OCTAVE_MIN;
+    midi_config.octave              = MI_OCT_N1 - MIDI_OCTAVE_MIN;
     midi_config.transpose           = 0;
     midi_config.velocity            = (MIDI_VELOCITY_MAX - MIDI_VELOCITY_MIN);
     midi_config.channel             = 0;
